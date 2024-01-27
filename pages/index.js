@@ -12,7 +12,17 @@ export default function Home() {
         <div className={styles.grid_container}>
           <div className={styles.card}>
             <div className={styles.card_content}>
-              <h1 className={styles.title}>על האתר</h1>
+              <h1 className={styles.title}>אינסטגרם</h1>
+              <p className={styles.text}>על האתר - הסברים</p>
+              <Link href="/ninjas/" className={styles.btn}>
+                See Ninja Listing
+              </Link>
+            </div>
+          </div>
+
+          <div className={styles.card}>
+            <div className={styles.card_content}>
+              <h1 className={styles.title}>פייסבוק</h1>
               <p className={styles.text}>על האתר - הסברים</p>
               <Link href="/ninjas/" className={styles.btn}>
                 See Ninja Listing
@@ -32,17 +42,7 @@ export default function Home() {
 
           <div className={styles.card}>
             <div className={styles.card_content}>
-              <h1 className={styles.title}>על האתר</h1>
-              <p className={styles.text}>על האתר - הסברים</p>
-              <Link href="/ninjas/" className={styles.btn}>
-                See Ninja Listing
-              </Link>
-            </div>
-          </div>
-
-          <div className={styles.card}>
-            <div className={styles.card_content}>
-              <h1 className={styles.title}>על האתר</h1>
+              <h1 className={styles.title}>איך מזהים פרופיל</h1>
               <p className={styles.text}>על האתר - הסברים</p>
               <Link href="/ninjas/" className={styles.btn}>
                 See Ninja Listing

@@ -1,6 +1,6 @@
 .title {
   color: #333;
-  padding-bottom: 20px;
+  padding-bottom: 10px;
   text-align: center;
 }
 .text {
@@ -10,7 +10,7 @@
   display: block;
   width: 85%;
   padding: 8px 0;
-  margin: 20px auto;
+  margin: 10px auto;
   background: #4979ff;
   border-radius: 4px;
   color: white;
@@ -19,16 +19,23 @@
 .grid_container{
   display:grid;
   gap: 1.5rem;
-  width: min(95%,100rem);
+  width: min(95%,200rem);
   grid-template-columns:repeat(5,1fr);
+  grid-template-rows: repeat(4, 25%);
   grid-template-areas:
   "instagram instagram . about about"
   "instagram instagram . about about"
+  "facebook facebook . about about"
   "facebook facebook . learn learn";
   margin-inline:auto;
+  margin-top: 100px;
+  margin-bottom: 150px;
 }
 .card{
   padding:1rem;
+  height: 100%;
+  min-height: 0;
+  width: 100%;
 }
 .card_content{
   display: flex;
@@ -42,6 +49,7 @@
   border-radius: 10px;
   background-color: #11111120;
   box-shadow: 0 0 8px #ffffff25;
+  overflow: hidden;
 }
 .card:nth-child(1){
   grid-area: instagram;
@@ -55,3 +63,4 @@
 .card:nth-child(4){
   grid-area: learn;
 }
+
