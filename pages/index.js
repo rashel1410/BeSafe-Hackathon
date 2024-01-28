@@ -12,8 +12,8 @@ export default function Home() {
         <meta name="keywords" content="ninjas"/>
       </Head>
         <Grid>
-          <Card title="אינסטגרם" content="משהו"/>
-          <Card title="פייסבוק" content="משהו"/>
+          <Card title="אינסטגרם" content="משהו" searchBar="True"/>
+          <Card title="פייסבוק" content="משהו" searchBar="True"/>
           <Card title="על האתר" content="משהו"/>
           <Card title="איך מזהים מתחזה"/>
         </Grid>
