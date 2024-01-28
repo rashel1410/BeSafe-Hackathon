@@ -42,16 +42,11 @@ export default function Home() {
 
           <div className={styles.card}>
             <div className={styles.card_content}>
-              <h1 className={styles.title}>איך מזהים פרופיל</h1>
-              <p className={styles.text}>על האתר - הסברים</p>
-              <Link href="/ninjas/" className={styles.btn}>
-                See Ninja Listing
-              </Link>
+              <h1 className={styles.title}>גלו איך מזהים פרופיל מזוייף</h1>
             </div>
           </div>
-        
+          <button>+</button>
         </div>
-
     </>
   )
 }
