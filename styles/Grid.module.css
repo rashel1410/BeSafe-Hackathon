@@ -1,0 +1,14 @@
+.grid_container{
+    display: grid;
+    gap: 1.5rem;
+    width: min(95%,200rem);
+    grid-template-columns:repeat(5,1fr);
+    grid-template-rows: repeat(4, 1fr);
+    grid-template-areas:
+    ". instagram instagram about about"
+    ". instagram instagram about about"
+    ". facebook facebook about about"
+    ". facebook facebook learn learn";
+    margin-inline:auto;
+    margin: 45px;
+  }

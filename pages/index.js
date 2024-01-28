@@ -1,6 +1,8 @@
 import Head from 'next/head'
 import Link from 'next/link'
 import styles from '../styles/Home.module.css'
+import Card from '../comps/Card.js'
+import Grid from '../comps/Grid.js'
 
 export default function Home() {
   return (
@@ -9,44 +11,12 @@ export default function Home() {
         <title>Ninja List | Home</title>
         <meta name="keywords" content="ninjas"/>
       </Head>
-        <div className={styles.grid_container}>
-          <div className={styles.card}>
-            <div className={styles.card_content}>
-              <h1 className={styles.title}>אינסטגרם</h1>
-              <p className={styles.text}>על האתר - הסברים</p>
-              <Link href="/ninjas/" className={styles.btn}>
-                See Ninja Listing
-              </Link>
-            </div>
-          </div>
-
-          <div className={styles.card}>
-            <div className={styles.card_content}>
-              <h1 className={styles.title}>פייסבוק</h1>
-              <p className={styles.text}>על האתר - הסברים</p>
-              <Link href="/ninjas/" className={styles.btn}>
-                See Ninja Listing
-              </Link>
-            </div>
-          </div>
-
-          <div className={styles.card}>
-            <div className={styles.card_content}>
-              <h1 className={styles.title}>על האתר</h1>
-              <p className={styles.text}>על האתר - הסברים</p>
-              <Link href="/ninjas/" className={styles.btn}>
-                See Ninja Listing
-              </Link>
-            </div>
-          </div>
-
-          <div className={styles.card}>
-            <div className={styles.card_content}>
-              <h1 className={styles.title}>גלו איך מזהים פרופיל מזוייף</h1>
-            </div>
-          </div>
-          <button>+</button>
-        </div>
+        <Grid>
+          <Card title="אינסטגרם" content="משהו"/>
+          <Card title="פייסבוק" content="משהו"/>
+          <Card title="על האתר" content="משהו"/>
+          <Card title="איך מזהים מתחזה"/>
+        </Grid>
     </>
   )
 }
