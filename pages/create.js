@@ -20,13 +20,29 @@ const createImposter = () => {
   const [imageUrl, setImageUrl] = useState('');
   const [info, setInfo] = useState('');
 
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    const imposter = {
+      firstName,
+      lastName,
+      nickname,
+      gender,
+      socialNetwork,
+      profileUrl,
+      imageUrl,
+      info,
+    };
+
+    console.log(imposter);
+  };
+
   const handleSocialNetworkChange = (e, socialNetwork) => {
     setSocialNetwork(socialNetwork);
   };
   return (
     <div className={styles.container}>
       <h3 className={styles.title}>הוספת מתחזה</h3>
-      <form action=''>
+      <form onSubmit={handleSubmit}>
         <div className={styles['row']}>
           <div className={styles.column}>
             {/* First name: */}
@@ -117,32 +133,33 @@ const createImposter = () => {
           </div>
         </div>
 
-        <label
+        {/* Profile URL: */}
+        <label className={styles.label}>לינק לפרופיל:</label>
+        <input
           value={profileUrl}
           onChange={(e) => setProfileUrl(e.target.value)}
-          className={styles.label}
-        >
-          לינק לפרופיל:
-        </label>
-        <input className={styles.input} type='text' required />
+          className={styles.input}
+          type='text'
+          required
+        />
 
-        <label
+        {/* Image URL: */}
+        <label className={styles.label}>תמונה:</label>
+        <input
           value={imageUrl}
           onChange={(e) => setImageUrl(e.target.value)}
-          className={styles.label}
-        >
-          תמונה:
-        </label>
-        <input className={styles.input} type='text' />
+          className={styles.input}
+          type='text'
+        />
 
-        <label
+        {/* Info: */}
+        <label className={styles.label}>תיאור:</label>
+        <textarea
           value={info}
           onChange={(e) => setInfo(e.target.value)}
-          className={styles.label}
-        >
-          תיאור:
-        </label>
-        <textarea className={styles.info} required></textarea>
+          className={styles.info}
+          required
+        ></textarea>
 
         <button className={styles.button}>הוספה</button>
       </form>
