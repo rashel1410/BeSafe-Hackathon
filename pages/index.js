@@ -3,6 +3,8 @@ import Link from 'next/link'
 import styles from '../styles/Home.module.css'
 import Card from '../comps/Card.js'
 import Grid from '../comps/Grid.js'
+import Fab from '@mui/material/Fab';
+import AddIcon from '@mui/icons-material/Add';
 
 export default function Home() {
   return (
@@ -16,6 +18,9 @@ export default function Home() {
           <Card title="פייסבוק" content="משהו" searchBar="True"/>
           <Card title="על האתר" content="משהו"/>
           <Card title="איך מזהים מתחזה"/>
+          <Fab aria-label="add" size="large">
+            <AddIcon />
+          </Fab>
         </Grid>
     </>
   )
