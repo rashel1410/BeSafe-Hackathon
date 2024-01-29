@@ -1,10 +1,11 @@
 .title {
-  color: #333;
+  color: white;
   padding-bottom: 10px;
   text-align: center;
 }
+
 .text {
-  color: #777;
+  color: white;
 }
 .btn {
   display: block;
@@ -16,51 +17,59 @@
   color: white;
   text-align: center;
 }
-.grid_container{
-  display:grid;
-  gap: 1.5rem;
-  width: min(95%,200rem);
-  grid-template-columns:repeat(5,1fr);
-  grid-template-rows: repeat(4, 25%);
-  grid-template-areas:
-  "instagram instagram . about about"
-  "instagram instagram . about about"
-  "facebook facebook . about about"
-  "facebook facebook . learn learn";
-  margin-inline:auto;
-  margin-top: 100px;
-  margin-bottom: 150px;
-}
-.card{
-  padding:1rem;
-  height: 100%;
-  min-height: 0;
-  width: 100%;
-}
-.card_content{
+
+.grid_container button {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background-color: rgb(255, 255, 255);
+  border: none;
+  font-weight: 600;
   display: flex;
-  flex-direction: column;
-  justify-content: center;
   align-items: center;
-  color: #ffffff;
-  backdrop-filter: blur(5px);
-  width: inherit;
-  height: inherit;
-  border-radius: 10px;
-  background-color: #11111120;
-  box-shadow: 0 0 8px #ffffff25;
+  justify-content: center;
+  box-shadow: 0px 0px 0px 4px rgba(180, 160, 255, 0.253);
+  cursor: pointer;
+  transition-duration: 0.3s;
   overflow: hidden;
-}
-.card:nth-child(1){
-  grid-area: instagram;
-}
-.card:nth-child(2){
-  grid-area: facebook;
-}
-.card:nth-child(3){
-  grid-area: about;
-}
-.card:nth-child(4){
-  grid-area: learn;
+  position: relative;
 }
 
+.svgIcon {
+  width: 12px;
+  transition-duration: 0.3s;
+}
+
+.svgIcon path {
+  fill: rgb(119, 25, 25);
+}
+
+.grid_container button:hover {
+  width: 140px;
+  border-radius: 50px;
+  transition-duration: 0.3s;
+  background-color: rgb(181, 160, 255);
+  align-items: center;
+}
+
+.grid_container button:hover .svgIcon {
+  /* width: 20px; */
+  transition-duration: 0.3s;
+  transform: translateY(-200%);
+}
+
+.grid_container button::before {
+  position: absolute;
+  bottom: -20px;
+  content: "Back to Top";
+  color: white;
+  /* transition-duration: .3s; */
+  font-size: 0px;
+}
+.grid_container button:hover::before {
+  font-size: 13px;
+  opacity: 1;
+  bottom: unset;
+  /* transform: translateY(-30px); */
+  transition-duration: 0.3s;
+}
