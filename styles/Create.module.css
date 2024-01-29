@@ -1,0 +1,88 @@
+/* add new imposter form */
+.container {
+  max-width: 400px;
+  margin: 0 auto;
+  text-align: center;
+}
+.label {
+  text-align: right;
+  display: block;
+}
+.title {
+  font-size: 20px;
+  color: #609c00;
+  margin-bottom: 30px;
+}
+.input,
+.info,
+.social {
+  width: 100%;
+  padding: 6px 10px;
+  margin: 10px 0;
+  border: 1px solid #ddd;
+  box-sizing: border-box;
+  display: block;
+}
+
+.info {
+  height: 200px;
+}
+
+.button {
+  background: #609c00;
+  color: #fff;
+  border: 0;
+  padding: 8px;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.row:after {
+  content: '';
+  display: table;
+  clear: both;
+}
+
+.row > .column {
+  float: left;
+  width: 48%;
+  margin-right: 4%;
+}
+
+.row > .column:last-child {
+  margin-right: 0;
+}
+
+.fieldwrap {
+  position: relative;
+  margin-bottom: 20px;
+}
+
+.icon {
+  border: none;
+  margin-right: 30px;
+  
+}
+
+.iconUnchecked {
+  color: grey;
+}
+
+.facebookChecked {
+  color: blue;
+}
+
+.instagramChecked {
+  color: rgb(255, 0, 187);
+}
+
+.hiddenRadio {
+  position: absolute;
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.inline {
+  display: inline;
+}
