@@ -14,7 +14,7 @@ const CreateImposterDialog = ({ open, onClose }) => {
   const [lastName, setLastName] = useState('');
   const [nickname, setNickname] = useState('');
   const [gender, setGender] = useState('man');
-  const [socialNetwork, setSocialNetwork] = useState('');
+  const [source, setSource] = useState('');
   const [profileUrl, setProfileUrl] = useState('');
   const [imageUrl, setImageUrl] = useState('');
   const [info, setInfo] = useState('');
@@ -30,18 +30,25 @@ const CreateImposterDialog = ({ open, onClose }) => {
       lastName,
       nickname,
       gender,
-      socialNetwork,
-      profileUrl,
-      imageUrl,
+      source,
+      profile_url: profileUrl,
+      image_url: imageUrl,
       info,
+      comments: [],
+      timestamp: new Date().toISOString().split('T')[0],
     };
 
     console.log(imposter);
+
+    fetch('http://localhost:8000/imposters', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(imposter),
+    }).then(() => {
+      console.log('a new imposter added:' + imposter.nickname);
+    });
   };
 
-  const handleSocialNetworkChange = (e, socialNetwork) => {
-    setSocialNetwork(socialNetwork);
-  };
   return (
     <Dialog
       dir='rtl'
@@ -97,8 +104,8 @@ const CreateImposterDialog = ({ open, onClose }) => {
                   className={styles.inline}
                   aria-labelledby='socialmedia'
                   name='socialmedia'
-                  value={socialNetwork}
-                  onChange={handleSocialNetworkChange}
+                  value={source}
+                  onChange={(e) => setSource(e.target.value)}
                 >
                   <FormControlLabel
                     value='instagram'
@@ -106,7 +113,7 @@ const CreateImposterDialog = ({ open, onClose }) => {
                     label={
                       <InstagramIcon
                         className={`${styles.icon} ${
-                          socialNetwork === 'instagram'
+                          source === 'instagram'
                             ? styles.instagramChecked
                             : styles.iconUnchecked
                         }`}
@@ -119,7 +126,7 @@ const CreateImposterDialog = ({ open, onClose }) => {
                     label={
                       <FacebookRoundedIcon
                         className={`${styles.icon} ${
-                          socialNetwork === 'facebook'
+                          source === 'facebook'
                             ? styles.facebookChecked
                             : styles.iconUnchecked
                         }`}
