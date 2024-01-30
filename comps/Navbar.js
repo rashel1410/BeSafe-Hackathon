@@ -4,7 +4,6 @@ import Image from 'next/image'
 const Navbar = () => {
   return (
     <nav>
-      <Link href='/create/'>הוספה</Link>
       <Link href="/ninjas/">פרופילים בפייסבוק</Link>
       <Link href="/about">פרופילים באינסטגרם</Link>
       <Link href="/">עמוד הבית</Link>
