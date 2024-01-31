@@ -1,6 +1,6 @@
 /* add new imposter form */
 .container {
-  max-width: 400px;
+  max-width: 700px;
   margin: 0 auto;
   text-align: center;
 }
@@ -9,10 +9,13 @@
   display: block;
 }
 .title {
-  font-size: 20px;
+  /* font-size: 20px;
   color: #609c00;
-  margin-bottom: 30px;
+  margin-bottom: 30px; */
+  display: flex;
+  align-items: center;
 }
+
 .input,
 .info,
 .social {
@@ -25,7 +28,7 @@
 }
 
 .info {
-  height: 200px;
+  height: 316px;
 }
 
 .button {
@@ -61,7 +64,6 @@
 .icon {
   border: none;
   margin-right: 30px;
-  
 }
 
 .iconUnchecked {
@@ -85,4 +87,15 @@
 
 .inline {
   display: inline;
+}
+
+.closeButton {
+  position: absolute;
+  left: 1%;
+  top: 1%;
+  color: rgb(255, 0, 187);
+}
+
+.paper {
+  overflow-y: unset;
 }
