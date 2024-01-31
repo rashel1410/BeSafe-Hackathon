@@ -78,8 +78,9 @@ const CreateImposterDialog = ({ open, onClose }) => {
                 <textarea
                   value={info}
                   onChange={(e) => setInfo(e.target.value)}
-                  className={styles.info}
+                  className={`${styles['info']} ${styles['input']}`}
                   required
+                  placeholder="תיאור קצר של המתחזה"
                 ></textarea>
               </div>
               <div className={styles.column}>
@@ -88,7 +89,7 @@ const CreateImposterDialog = ({ open, onClose }) => {
                     {/* First name: */}
                     <label className={styles.label}>שם משפחה:</label>
                     <input
-                      className={styles.input}
+                      className={styles['input']}
                       type='text'
                       value={lastName}
                       onChange={(e) => setLastName(e.target.value)}
@@ -98,7 +99,7 @@ const CreateImposterDialog = ({ open, onClose }) => {
                     {/* Last name: */}
                     <label className={styles.label}>שם פרטי:</label>
                     <input
-                      className={styles.input}
+                      className={styles['input']}
                       type='text'
                       value={firstName}
                       onChange={(e) => setFirstName(e.target.value)}
@@ -108,7 +109,7 @@ const CreateImposterDialog = ({ open, onClose }) => {
                 {/* Nickname: */}
                 <label className={styles.label}>כינוי:</label>
                 <input
-                  className={styles.input}
+                  className={styles['input']}
                   type='text'
                   required
                   value={nickname}
@@ -164,7 +165,7 @@ const CreateImposterDialog = ({ open, onClose }) => {
                     <select
                       value={gender}
                       onChange={(e) => setGender(e.target.value)}
-                      className={styles.social}
+                      className={styles.input}
                     >
                       <option vale='man'>גבר</option>
                       <option value='woman'>אישה</option>
@@ -178,7 +179,7 @@ const CreateImposterDialog = ({ open, onClose }) => {
                 <input
                   value={profileUrl}
                   onChange={(e) => setProfileUrl(e.target.value)}
-                  className={styles.input}
+                  className={styles['input']}
                   type='text'
                   required
                 />
