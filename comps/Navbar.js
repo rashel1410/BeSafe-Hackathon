@@ -7,7 +7,7 @@ const Navbar = () => {
       <Link href="/ninjas/">פרופילים בפייסבוק</Link>
       <Link href="/about">פרופילים באינסטגרם</Link>
       <Link href="/">עמוד הבית</Link>
-      
+      <Link href="/profileDisplay"> פרופיל מתחזה</Link>
       <div className="logo">
         <Image src="/logo.png" alt="site logo" width={128} height={77} />
       </div>
