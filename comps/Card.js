@@ -29,8 +29,12 @@ const Card = ({ title, content, searchBar=false , avatarList=false}) => {
             {searchBar && <Search/>}
 
             <div className={styles.card_footer}>
-                <h4>:פרופילים שדווחו לאחרונה</h4>
-                {avatarList && <AvatarList/>}
+                {avatarList && (
+                    <div>
+                        <h4>:פרופילים שדווחו לאחרונה</h4>
+                        <AvatarList/>
+                    </div>
+                )}
             </div>
             </CardContent>
 
