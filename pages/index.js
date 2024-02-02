@@ -6,10 +6,13 @@ import Grid from '../comps/Grid.js';
 import Fab from '@mui/material/Fab';
 import AddIcon from '@mui/icons-material/Add';
 import { useState } from 'react';
+import { useGlobalContext } from '../public/context.js';
 import CreateImposterDialog from './create.js';
 
 export default function Home() {
   const [addDialogOpen, setAddDialogOpen] = useState(false);
+  const { imposters } = useGlobalContext();
+  
 
   const handleClickOpen = () => {
     setAddDialogOpen(true);
@@ -22,7 +25,7 @@ export default function Home() {
   return (
     <>
       <Head>
-        <title>Ninja List | Home</title>
+        <title>Shazar | Home</title>
         <meta name='keywords' content='ninjas' />
       </Head>
       <Grid>
