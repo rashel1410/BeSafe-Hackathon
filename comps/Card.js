@@ -7,11 +7,12 @@ import Typography from '@mui/material/Typography';
 import Button from '@mui/material/Button';
 import IconButton from '@mui/material/IconButton';
 import Container from '@mui/material/Container';
-import Avatar from './Avatar';
+import Avatar from '@mui/material/Avatar';
 import AddIcon from '@mui/icons-material/Add';
+import AvatarList from './AvatarList'
 import { red } from '@mui/material/colors';
 
-const Card = ({ title, content, searchBar=false }) => {
+const Card = ({ title, content, searchBar=false , avatarList=false}) => {
   return (
     <div className={styles.card}>
         <div className={styles.card_content}>
@@ -24,15 +25,14 @@ const Card = ({ title, content, searchBar=false }) => {
                 {content}
                 </Typography>
             )}
-            </CardContent>
 
             {searchBar && <Search/>}
+            
+            </CardContent>
 
             <div className={styles.card_footer}>
-                <Button variant="outlined" color="primary">
-                    Learn More
-                </Button>
-                <Avatar />
+
+                {avatarList && <AvatarList/>}
 
             </div>
         </div>

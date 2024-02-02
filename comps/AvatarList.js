@@ -1,36 +1,34 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import Avatar from '@mui/material/Avatar';
 import Typography from '@mui/material/Typography';
 import Grid from '@mui/material/Grid';
+import { useGlobalContext } from '../public/context';
 
-const UserList = () => {
-    const [userNames, setUserNames] = useState([]);
+const AvatarList = () => {
+  const { imposters, isPending } = useGlobalContext();
+  const firstThreeImposters = imposters && imposters.slice(0, 3);
 
-    useEffect(() => {
-        fetch(/**********/)
-          .then((response) => response.json())
-          .then((data) => setUserNames(data))
-          .catch((error) => console.error('Error fetching user names:', error));
-      }, []); // The empty dependency array ensures that the effect runs only once on mount
-      
-      return (
+  return (
+    <Grid container spacing={2}>
+      {isPending && <div>טוען...</div>}
+      {firstThreeImposters && (
         <Grid container spacing={2}>
-          {userNames.map((user, index) => (
-            <Grid item xs={6} sm={4} md={2} key={index}>
+          {firstThreeImposters.map((imposter) => (
+            <Grid item xs={12} sm={12} md={12} key={imposter.id}>
               <Grid container spacing={1} alignItems="center">
                 <Grid item>
-                  <Avatar sx={{ bgcolor: 'red', color: 'white' }}>{user.name.charAt(0)}</Avatar>
+                  <Avatar sx={{ bgcolor: 'brown', color: 'white' }} src={imposter.img_url}></Avatar>
                 </Grid>
                 <Grid item>
-                  <Typography variant="h6">{user.name}</Typography>
+                  <Typography variant="h6">{imposter.nick_name}</Typography>
                 </Grid>
               </Grid>
             </Grid>
           ))}
         </Grid>
-      );
-    };
-    
-    export default UserList;
+      )}
+    </Grid>
+  );
+};
 
-
+export default AvatarList;

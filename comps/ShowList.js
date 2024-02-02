@@ -32,7 +32,7 @@ export default function ShowList({ imposters, isPending }) {
             secondary={
               <React.Fragment>
                 <Typography
-                  sx={{ display: 'inline' }}
+                  sx={{ display: 'inline'}}
                   component='span'
                   variant='body2'
                   color='text.primary'
