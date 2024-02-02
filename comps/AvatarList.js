@@ -10,7 +10,7 @@ const AvatarList = () => {
 
   return (
     <Grid container spacing={2}>
-      {isPending && <div>טוען...</div>}
+      {isPending && <div>...טוען</div>}
       {firstThreeImposters && (
         <Grid container spacing={2}>
           {firstThreeImposters.map((imposter) => (
@@ -20,7 +20,7 @@ const AvatarList = () => {
                   <Avatar sx={{ bgcolor: 'brown', color: 'white' }} src={imposter.img_url}></Avatar>
                 </Grid>
                 <Grid item>
-                  <Typography variant="h6">{imposter.nick_name}</Typography>
+                  <Typography variant="body1">{imposter.nick_name}</Typography>
                 </Grid>
               </Grid>
             </Grid>

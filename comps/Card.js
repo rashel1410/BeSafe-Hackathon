@@ -22,19 +22,18 @@ const Card = ({ title, content, searchBar=false , avatarList=false}) => {
             </Typography>
             {content && (
                 <Typography variant="body2" color="text.secondary" className={styles.text}>
-                {content}
+                    {content}
                 </Typography>
             )}
 
             {searchBar && <Search/>}
-            
-            </CardContent>
 
             <div className={styles.card_footer}>
-
+                <h4>:פרופילים שדווחו לאחרונה</h4>
                 {avatarList && <AvatarList/>}
-
             </div>
+            </CardContent>
+
         </div>
     </div>
   );
