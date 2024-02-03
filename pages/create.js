@@ -33,8 +33,8 @@ const CreateImposterDialog = ({ open, onClose, onAddSuccess }) => {
   const handleSubmit = (e) => {
     e.preventDefault();
     const imposter = {
-      firstName,
-      lastName,
+      first_name: firstName,
+      last_name: lastName,
       nickname,
       gender,
       source,
