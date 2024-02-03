@@ -1,7 +1,6 @@
 import React from 'react';
-import Avatar from '@mui/material/Avatar';
-import Typography from '@mui/material/Typography';
 import Grid from '@mui/material/Grid';
+import RenderThreeImposters from './RenderThreeImposters';
 import { useGlobalContext } from '../public/context';
 
 const AvatarList = () => {
@@ -23,33 +22,15 @@ const AvatarList = () => {
 
   return (
     <Grid container spacing={2}>
-      {isPending && <div>...טוען</div>}
+      {isPending && <div>טוען...</div>}
       {firstThreeImpostersInstagram && firstThreeImpostersFacebook &&(
         <Grid container spacing={2}>
-          {firstThreeImpostersInstagram.map((imposter) => (
-            <Grid item xs={6} sm={6} md={6} key={imposter.id}>
-              <Grid container spacing={1} alignItems="center">
-                <Grid item>
-                  <Avatar sx={{ bgcolor: 'brown', color: 'white' }} src={imposter.img_url}></Avatar>
-                </Grid>
-                <Grid item>
-                  <Typography variant="body1">{imposter.nick_name}</Typography>
-                </Grid>
-              </Grid>
-            </Grid>
-          ))}
-          {firstThreeImpostersFacebook.map((imposter) => (
-            <Grid item xs={6} sm={6} md={6} key={imposter.id}>
-              <Grid container spacing={1} alignItems="center">
-                <Grid item>
-                  <Avatar sx={{ bgcolor: 'brown', color: 'white' }} src={imposter.img_url}></Avatar>
-                </Grid>
-                <Grid item>
-                  <Typography variant="body1">{imposter.nick_name}</Typography>
-                </Grid>
-              </Grid>
-            </Grid>
-          ))}
+          <Grid item xs={6} md={6} >
+            <RenderThreeImposters imposters={firstThreeImpostersInstagram}/>
+          </Grid>
+          <Grid item xs={6} md={6} >
+            <RenderThreeImposters imposters={firstThreeImpostersFacebook}/>
+          </Grid>
         </Grid>
       )}
     </Grid>
