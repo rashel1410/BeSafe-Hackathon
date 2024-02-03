@@ -44,3 +44,10 @@
     cursor: pointer;
     transform: scale(1.05);
   }
+  .card_footer{
+    padding: 20px;
+    margin-left: 30px;
+  }
+  .card_footer h4{
+    text-align: right;
+  }
