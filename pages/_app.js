@@ -5,9 +5,11 @@ import { AppProvider } from '../public/context';
 function App({ Component, pageProps }) {
   return (
     <AppProvider>
-      <Layout>
-        <Component {...pageProps} />
-      </Layout>
+      <div dir='rtl'>
+        <Layout>
+          <Component {...pageProps} />
+        </Layout>
+      </div>
     </AppProvider>
   );
 }
