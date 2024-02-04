@@ -21,7 +21,8 @@ const AvatarList = () => {
     }).slice(0, 3);
 
   return (
-    <Grid container spacing={2}>
+    <div dir='ltr'>
+<Grid container spacing={2}>
       {isPending && <div>טוען...</div>}
       {firstThreeImpostersInstagram && firstThreeImpostersFacebook &&(
         <Grid container spacing={2}>
@@ -34,6 +35,8 @@ const AvatarList = () => {
         </Grid>
       )}
     </Grid>
+    </div>
+    
   );
 };
 
