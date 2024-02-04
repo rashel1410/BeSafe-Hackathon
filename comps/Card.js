@@ -37,7 +37,6 @@ const Card = ({ title, content, searchBar=false , avatarList=false}) => {
                 )}
             </div>
             </CardContent>
-
         </div>
     </div>
   );
