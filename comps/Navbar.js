@@ -9,7 +9,7 @@ const Navbar = () => {
       <Link href="/imposters"> רשימת המתחזים</Link>
       <Link href="/">עמוד הבית</Link>
       <div className="logo">
-        <Image src="/logo.png" alt="site logo" width={128} height={77} />
+        <Image src="/logo.png" alt="site logo" width={200} height={100} />
       </div>
     </nav>
   );
