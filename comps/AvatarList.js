@@ -1,33 +1,42 @@
 import React from 'react';
-import Avatar from '@mui/material/Avatar';
-import Typography from '@mui/material/Typography';
 import Grid from '@mui/material/Grid';
+import RenderThreeImposters from './RenderThreeImposters';
 import { useGlobalContext } from '../public/context';
 
 const AvatarList = () => {
   const { imposters, isPending } = useGlobalContext();
-  const firstThreeImposters = imposters && imposters.slice(0, 3);
+  const firstThreeImpostersInstagram = imposters && imposters.filter((imposter) => {
+    return (
+        imposter &&
+        imposter.source &&
+        imposter.source.includes('Instagram')
+    );
+    }).slice(0, 3);
+  const firstThreeImpostersFacebook = imposters && imposters.filter((imposter) => {
+    return (
+        imposter &&
+        imposter.source &&
+        imposter.source.includes('Facebook')
+    );
+    }).slice(0, 3);
 
   return (
-    <Grid container spacing={2}>
-      {isPending && <div>...טוען</div>}
-      {firstThreeImposters && (
+    <div dir='ltr'>
+<Grid container spacing={2}>
+      {isPending && <div>טוען...</div>}
+      {firstThreeImpostersInstagram && firstThreeImpostersFacebook &&(
         <Grid container spacing={2}>
-          {firstThreeImposters.map((imposter) => (
-            <Grid item xs={12} sm={12} md={12} key={imposter.id}>
-              <Grid container spacing={1} alignItems="center">
-                <Grid item>
-                  <Avatar sx={{ bgcolor: 'brown', color: 'white' }} src={imposter.img_url}></Avatar>
-                </Grid>
-                <Grid item>
-                  <Typography variant="body1">{imposter.nick_name}</Typography>
-                </Grid>
-              </Grid>
-            </Grid>
-          ))}
+          <Grid item xs={6} md={6} >
+            <RenderThreeImposters imposters={firstThreeImpostersInstagram}/>
+          </Grid>
+          <Grid item xs={6} md={6} >
+            <RenderThreeImposters imposters={firstThreeImpostersFacebook}/>
+          </Grid>
         </Grid>
       )}
     </Grid>
+    </div>
+    
   );
 };
 
