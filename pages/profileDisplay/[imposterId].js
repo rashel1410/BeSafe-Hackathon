@@ -84,6 +84,11 @@ const ProfileDisplay = () => {
           <h1>
             {imposterToDisplay.first_name} {imposterToDisplay.last_name}
           </h1>
+          <h3>
+            {imposterToDisplay.nick_name}, {imposterToDisplay.gender}
+          </h3>
+
+
 
           <img style={{ "borderRadius": "25px", "height": "200px", "marginBottom": "10px" }} src={imposterToDisplay.img_url} />
 
