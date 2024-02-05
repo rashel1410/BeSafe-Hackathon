@@ -7,7 +7,8 @@ import Avatar from "@mui/material/Avatar";
 import styles from '/styles/Card.module.css';
 
 
-import Card from '/comps/Card.js';
+import Card from '../../comps/Card.js';
+
 
 const ProfileDisplay = () => {
   const router = useRouter();
@@ -122,30 +123,16 @@ const ProfileDisplay = () => {
           <p>דיווח</p>
 
 
-          <Card
-            className={styles.card2}
+          <div style={{ "width": "450px" }}>
+            <Card
+              className={styles.card2}
 
-            content={imposterToDisplay.info}
-            readOnly
-          ></Card>
+              content={imposterToDisplay.info}
+              readOnly
+            ></Card>
 
+          </div>
 
-          <br />
-          <textarea
-            rows={4}
-            cols={50}
-            value={imposterToDisplay.comments}
-            readOnly
-          ></textarea>
-          <br />
-          <textarea
-            rows={4}
-            cols={50}
-            value={imposterToDisplay.comments}
-            readOnly
-          ></textarea>
-
-          <br />
           <p>הוסף תגובה</p>
           <textarea
             rows={4}
@@ -156,6 +143,19 @@ const ProfileDisplay = () => {
           ></textarea>
           <br />
           <button onClick={handleSubmitComment}>Submit Comment</button>
+
+          <br />
+          <br />
+          <div style={{ "width": "400px" }}>
+            {imposterToDisplay.comments.map(comment => (
+              <div style={{ "margin-bottom": "10px" }}>
+                <Card content={comment}>
+                </Card>
+              </div>
+            ))}
+          </div>
+          <br />
+
         </center>
       )}
     </>
