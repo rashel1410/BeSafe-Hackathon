@@ -85,7 +85,7 @@ const ProfileDisplay = () => {
             {imposterToDisplay.first_name} {imposterToDisplay.last_name}
           </h1>
 
-          <Avatar src={imposterToDisplay.img_url} />
+          <img style={{ "borderRadius": "25px", "height": "200px", "marginBottom": "10px" }} src={imposterToDisplay.img_url} />
 
           {/* <Image
             src="https://upload.wikimedia.org/wikipedia/commons/9/95/Instagram_logo_2022.svg"
@@ -94,7 +94,7 @@ const ProfileDisplay = () => {
             height={100}
           /> */}
           <br />
-          <a
+          {imposterToDisplay.source === "Instagram" ? <a
             href={imposterToDisplay.profile_url}
             target="_blank"
             rel="noopener noreferrer"
@@ -106,8 +106,9 @@ const ProfileDisplay = () => {
               height={30}
             />
           </a>
+            : null}
 
-          <a
+          {imposterToDisplay.source === "Facebook" ? <a
             href="https://www.facebook.com/"
             target="_blank"
             rel="noopener noreferrer"
@@ -118,7 +119,8 @@ const ProfileDisplay = () => {
               width={30}
               height={30}
             />
-          </a>
+          </a> : null}
+
           <br />
           <p>דיווח</p>
 
