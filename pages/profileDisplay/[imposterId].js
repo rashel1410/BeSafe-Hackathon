@@ -4,6 +4,10 @@ import Image from "next/image";
 import { useGlobalContext } from "../../public/context";
 import { useRouter } from "next/router";
 import Avatar from "@mui/material/Avatar";
+import styles from '/styles/Card.module.css';
+
+
+import Card from '/comps/Card.js';
 
 const ProfileDisplay = () => {
   const router = useRouter();
@@ -35,11 +39,38 @@ const ProfileDisplay = () => {
     setComment(event.target.value);
   };
 
-  const handleSubmitComment = () => {
-    // Handle the submission of the comment (e.g., send it to a server, update state, etc.)
-    console.log("Submitted Comment:", comment);
-    // You can add additional logic here based on your requirements
+  const handleSubmitComment = async () => {
+    try {
+      const comments = [comment, ...(imposterToDisplay.comments || [])]
+      const response = await fetch(`http://localhost:8000/imposters/${imposterId}`, {
+        method: "PATCH",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ comments }),
+      });
+
+      console.log(comment);
+      console.log(imposterId);
+
+      if (response.ok) {
+        setImposterToDisplay({
+          ...imposterToDisplay,
+          comments,
+        });
+
+        setComment(""); // Clear the comment input field
+      } else {
+        console.error("Failed to add comment");
+      }
+    } catch (error) {
+      console.error("Error:", error);
+    }
   };
+
+
+
+
 
   return (
     <>
@@ -89,12 +120,16 @@ const ProfileDisplay = () => {
           </a>
           <br />
           <p>דיווח</p>
-          <textarea
-            rows={4}
-            cols={50}
-            value={imposterToDisplay.info}
+
+
+          <Card
+            className={styles.card2}
+
+            content={imposterToDisplay.info}
             readOnly
-          ></textarea>
+          ></Card>
+
+
           <br />
           <textarea
             rows={4}
@@ -125,6 +160,6 @@ const ProfileDisplay = () => {
       )}
     </>
   );
-};
 
+};
 export default ProfileDisplay;
