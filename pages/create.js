@@ -35,7 +35,7 @@ const CreateImposterDialog = ({ open, onClose, onAddSuccess }) => {
     const imposter = {
       first_name: firstName,
       last_name: lastName,
-      nickname,
+      nick_name: nickname,
       gender,
       source,
       profile_url: profileUrl,

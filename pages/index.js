@@ -15,7 +15,6 @@ import CreateImposterDialog from './create.js';
 export default function Home() {
   const [addDialogOpen, setAddDialogOpen] = useState(false);
   const [snackbar, setSnackbar] = useState({ open: false, message: '' });
-  const { imposters, isPending } = useGlobalContext();
 
   const showSnackbar = (message) => {
     setSnackbar({ open: true, message });
