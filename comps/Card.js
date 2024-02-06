@@ -12,21 +12,31 @@ import AddIcon from '@mui/icons-material/Add';
 import AvatarList from './AvatarList'
 import { red } from '@mui/material/colors';
 
-const Card = ({ title, content, searchBar = false, avatarList = false }) => {
-    return (
-        <div className={styles.card}>
-            <div className={styles.card_content}>
-                <CardContent>
-                    <Typography variant="h5" component="div">
-                        {title}
-                    </Typography>
-                    {content && (
-                        <Typography variant="body2" color="text.secondary" className={styles.text}>
-                            {content}
-                        </Typography>
-                    )}
 
-                    {searchBar && <Search />}
+const Card = ({ title, content, searchBar=false , avatarList=false}) => {
+    let app;
+    if(title === 'אינסטגרם')
+    {
+        app = 'Instagram';
+    }
+    else{
+        app = 'Facebook'
+    }
+  return (
+    <div className={styles.card}>
+        <div className={styles.card_content}>
+            <CardContent>
+            <Typography variant="h5" component="div">
+                {title}
+            </Typography>
+            {content && (
+                <Typography variant="body2" color="text.secondary" className={styles.text}>
+                    {content}
+                </Typography>
+            )}
+
+            {searchBar && <Search app={app}/>}
+
 
                     <div className={styles.card_footer}>
                         {avatarList && (
