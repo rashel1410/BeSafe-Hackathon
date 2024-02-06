@@ -35,11 +35,11 @@ const CreateImposterDialog = ({ open, onClose, onAddSuccess }) => {
     const imposter = {
       first_name: firstName,
       last_name: lastName,
-      nickname,
+      nick_name: nickname,
       gender,
       source,
       profile_url: profileUrl,
-      image_url: imageUrl,
+      img_url: imageUrl,
       info,
       comments: [],
       timestamp: new Date().toISOString().split('T')[0],
@@ -135,12 +135,12 @@ const CreateImposterDialog = ({ open, onClose, onAddSuccess }) => {
                         required
                       >
                         <FormControlLabel
-                          value='instagram'
+                          value='Instagram'
                           control={<Radio className={styles.hiddenRadio} />}
                           label={
                             <InstagramIcon
                               className={`${styles.icon} ${
-                                source === 'instagram'
+                                source === 'Instagram'
                                   ? styles.instagramChecked
                                   : styles.iconUnchecked
                               }`}
@@ -148,12 +148,12 @@ const CreateImposterDialog = ({ open, onClose, onAddSuccess }) => {
                           }
                         />
                         <FormControlLabel
-                          value='facebook'
+                          value='Facebook'
                           control={<Radio className={styles.hiddenRadio} />}
                           label={
                             <FacebookRoundedIcon
                               className={`${styles.icon} ${
-                                source === 'facebook'
+                                source === 'Facebook'
                                   ? styles.facebookChecked
                                   : styles.iconUnchecked
                               }`}

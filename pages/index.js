@@ -14,7 +14,6 @@ import CreateImposterDialog from "./create.js";
 export default function Home() {
   const [addDialogOpen, setAddDialogOpen] = useState(false);
   const [snackbar, setSnackbar] = useState({ open: false, message: "" });
-  const { imposters, isPending } = useGlobalContext();
 
   const showSnackbar = (message) => {
     setSnackbar({ open: true, message });
@@ -42,8 +41,8 @@ export default function Home() {
         <meta name="keywords" content="ninjas" />
       </Head>
       <Grid>
-        <Card title="אינסטגרם" content="משהו" searchBar="True" />
-        <Card title="פייסבוק" content="משהו" searchBar="True" />
+        <Card title="אינסטגרם" searchBar />
+        <Card title="פייסבוק" searchBar />
         <Card
           title="על האתר"
           content={

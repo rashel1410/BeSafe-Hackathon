@@ -1,16 +1,23 @@
-import Link from "next/link";
-import Image from "next/image";
+import Link from 'next/link';
+import Image from 'next/image';
+import styles from '../styles/Navbar.module.css';
 
 const Navbar = () => {
   return (
-    <nav>
-      <Link href="/ninjas/">פרופילים בפייסבוק</Link>
-      <Link href="/about">פרופילים באינסטגרם</Link>
-      <Link href="/imposters"> רשימת המתחזים</Link>
-      <Link href="/">עמוד הבית</Link>
-      <div className="logo">
-        <Image src="/logo.png" alt="site logo" width={200} height={100} />
-      </div>
+    <nav className={styles.navbar}>
+      <Link href='/'>
+        <div className='logo'>
+          <Image src='/logo3.png' alt='site logo' width={200} height={85} />
+        </div>
+      </Link>
+      <ul className={styles.nav_links}>
+        <li>
+          <Link href='/'>עמוד הבית</Link>
+        </li>
+        <li>
+          <Link href='/imposters'> רשימת המתחזים</Link>
+        </li>
+      </ul>
     </nav>
   );
 };
