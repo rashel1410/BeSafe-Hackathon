@@ -10,21 +10,18 @@ const AvatarList = () => {
       const date2 = new Date(imposter2.timestamp)
       return date2 - date1;
   };
+  const sortAndSlice = (imposters, source) => {
+    return imposters && imposters.filter((imposter) => {
+      return (
+          imposter &&
+          imposter.source &&
+          imposter.source.includes(source)
+      );
+      }).sort(sortingByDate).slice(0, 3);
+  }
 
-  const firstThreeImpostersInstagram = imposters && imposters.filter((imposter) => {
-    return (
-        imposter &&
-        imposter.source &&
-        imposter.source.includes('instagram')
-    );
-    }).sort(sortingByDate).slice(0, 3);
-  const firstThreeImpostersFacebook = imposters && imposters.filter((imposter) => {
-    return (
-        imposter &&
-        imposter.source &&
-        imposter.source.includes('facebook')
-    );
-    }).sort(sortingByDate).slice(0, 3);
+  const firstThreeImpostersInstagram = sortAndSlice(imposters, 'instagram');
+  const firstThreeImpostersFacebook = sortAndSlice(imposters, 'facebook');
 
   return (
     <div dir='ltr'>
