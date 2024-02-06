@@ -1,50 +1,100 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { useState } from "react";
+import { useGlobalContext } from '../public/context';
+import TextField from '@mui/material/TextField';
+import Autocomplete from '@mui/material/Autocomplete';
+import { useRouter } from "next/router";
 
-const Search = () => {
-    const [input, setInput] = useState("");
 
-    const fetchData = ((value) => {
-        fetch(/**********/)
-        .then((response) => {
-            return response.json;
-        })
-        .then((data) => {
-            const result = data.filter((imposter) => {
-                return (
-                    value &&
-                    imposter &&
-                    imposter.name &&
-                    imposter.name.toLowercase().includes(value)
-                ); //search by name???
+
+const Search = ({ app }) => {
+    const { imposters } = useGlobalContext();
+    const [namesList, setNamesList] = useState([]);
+    //const [linksList, setLinksList] = useState([]);
+    const router = useRouter();
+
+    useEffect(() => {
+        if(app === 'Instagram')
+        {
+            const data = imposters?.filter(
+                (imposter) => imposter.source == "Instagram"
+            );
+            //names
+            const names = data?.map((item) => {
+                return {
+                    ...item,
+                    label: item.nick_name
+                }
             });
-        //do something with the result
-        //new page
-        });
-    });
+            setNamesList(names);
+            //links
+            // const links = data?.map((item) => {
+            //     return {
+            //         ...item,
+            //         label: item.profile_url
+            //     }
+            // });
+            // setLinksList(links);
+        }
+        else
+        {
+            const data = imposters?.filter(
+                (imposter) => imposter.source == "Facebook"
+            );
+            //names
+            const names = data?.map((item) => {
+                return {
+                    ...item,
+                    label: item.nick_name
+                }
+            });
+            setNamesList(names);
+            //links
+            // const links = data?.map((item) => {
+            //     return {
+            //         ...item,
+            //         label: item.profile_url
+            //     }
+            // });
+            // setLinksList(links);
+        }
+    }, [imposters]);
 
-    const handleChange = ((value) => {
-        setInput(value);
-        fetchData(value);
-    });
+    const handleNameChange = (event, value) => {
+        if (value) {
+            router.push(`profileDisplay/${value.id}`);
+        }
+    };
+
+    // const handleLinkChange = (event, value) => {
+    //     if (value) {
+    //         router.push(`profileDisplay/${value.id}`);
+    //     }
+    // };
 
     return (
-        <div className="search">
+        <div className="search-bar-dropdown">
+            <Autocomplete
+                disablePortal
+                id="combo-box-demo"
+                options={namesList}
+                getOptionLabel={(option) => option.nick_name}
+                sx={{ width: 300 }}
+                onChange={handleNameChange}
+                renderInput={(params) => <TextField  {...params} label="חפש לפי שם ..." />}
+            />
             
-            <input
-                type="text"
-                placeholder='חפש לפי שם'
-                value={ input }
-                onChange={(e) => {handleChange(e.target.value)}} //need to add a button with onClick and not this
-                //need to add label tag??
-            />
             <br/>
-            <input
-                type="text"
-                placeholder='חפש לפי לינק'
-                value={ input }
-                onChange={(e) => {handleChange(e.target.value)}} //need to add a button with onClick and not this
-            />
+
+            {/* <Autocomplete
+                disablePortal
+                id="combo-box-demo"
+                options={linksList}
+                getOptionLabel={(option) => option.label}
+                sx={{ width: 300 }}
+                onChange={handleLinkChange}
+                renderInput={(params) => <TextField  {...params} label="חפש לפי לינק ..." />}
+            /> */}
         </div>
     );
 }

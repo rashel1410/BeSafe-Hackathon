@@ -13,6 +13,14 @@ import AvatarList from './AvatarList'
 import { red } from '@mui/material/colors';
 
 const Card = ({ title, content, searchBar=false , avatarList=false}) => {
+    let app;
+    if(title === 'אינסטגרם')
+    {
+        app = 'Instagram';
+    }
+    else{
+        app = 'Facebook'
+    }
   return (
     <div className={styles.card}>
         <div className={styles.card_content}>
@@ -26,7 +34,7 @@ const Card = ({ title, content, searchBar=false , avatarList=false}) => {
                 </Typography>
             )}
 
-            {searchBar && <Search/>}
+            {searchBar && <Search app={app}/>}
 
             <div className={styles.card_footer}>
                 {avatarList && (
