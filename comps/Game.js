@@ -2,6 +2,7 @@ import * as React from "react";
 import { useState, useContext } from "react";
 import { Questions } from "../helpers/Questions";
 import { GameContext } from "../helpers/Contexts";
+import { Box } from "@mui/material";
 
 const Game = () => {
   const [currQuestion, setCurrQuestion] = useState(0);
@@ -9,13 +10,27 @@ const Game = () => {
   const { gameState, setGameState } = useContext(GameContext);
   return (
     <div className="Game">
-      <h2>מיהו המתחזה?</h2>
+      <h2>{Questions[currQuestion].title}</h2>
       <div className="options">
         <button onClick={() => setOptionChosen("A")}>
-          <img src={Questions[currQuestion].optionA}></img>
+          <Box
+            component="img"
+            sx={{
+              maxHeight: { xs: 300 },
+              maxWidth: { xs: 500 },
+            }}
+            src={Questions[currQuestion].optionA}
+          />
         </button>
         <button onClick={() => setOptionChosen("B")}>
-          <img src={Questions[currQuestion].optionB}></img>
+          <Box
+            component="img"
+            sx={{
+              maxHeight: { xs: 300 },
+              maxWidth: { xs: 500 },
+            }}
+            src={Questions[currQuestion].optionB}
+          />
         </button>
         {Questions[currQuestion].answer == optionChosen && <h2>תשובה נכונה</h2>}
         {optionChosen != "" &&
