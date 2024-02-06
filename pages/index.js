@@ -62,7 +62,7 @@ export default function Home() {
           title="על האתר"
           content={aboutContent()}
           avatarList/>
-        <Card title='איך מזהים מתחזה' url='./game_app'/>
+        <Card title='איך מזהים מתחזה?' url='./game_app'/>
         <Card addButton clickHandler={handleClickOpen}/>
         <CreateImposterDialog
           open={addDialogOpen}
