@@ -39,7 +39,7 @@ const CreateImposterDialog = ({ open, onClose, onAddSuccess }) => {
       gender,
       source,
       profile_url: profileUrl,
-      image_url: imageUrl,
+      img_url: imageUrl,
       info,
       comments: [],
       timestamp: new Date().toISOString().split('T')[0],
