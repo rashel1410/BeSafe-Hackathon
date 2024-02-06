@@ -13,44 +13,46 @@ const Imposters = () => {
   };
 
   return (
-    <div>
-      <h1>רשימת המתחזים</h1>
-      <Search />
-      <br></br>
-      <ToggleButtonGroup
-        color="primary"
-        value={alignment}
-        exclusive
-        onChange={handleChange}
-        aria-label="Platform"
-      >
-        <ToggleButton value="all">הכל</ToggleButton>
-        <ToggleButton value="facebook">פייסבוק</ToggleButton>
-        <ToggleButton value="instagram">אינסטגרם</ToggleButton>
-      </ToggleButtonGroup>
+    <center>
+        <div>
+          <h1>רשימת המתחזים</h1>
+          <Search />
+          <br></br>
+          <ToggleButtonGroup
+            color="primary"
+            value={alignment}
+            exclusive
+            onChange={handleChange}
+            aria-label="Platform"
+          >
+            <ToggleButton value="all">הכל</ToggleButton>
+            <ToggleButton value="facebook">פייסבוק</ToggleButton>
+            <ToggleButton value="instagram">אינסטגרם</ToggleButton>
+          </ToggleButtonGroup>
 
-      {isPending && <div>טוען...</div>}
-      {console.log(alignment == "all")}
-      {alignment == "all" && imposters && (
-        <ShowList imposters={imposters} isPending={isPending} />
-      )}
-      {alignment == "facebook" && imposters && (
-        <ShowList
-          imposters={imposters.filter(
-            (imposter) => imposter.source == "Facebook"
+          {isPending && <div>טוען...</div>}
+          {console.log(alignment == "all")}
+          {alignment == "all" && imposters && (
+            <ShowList imposters={imposters} isPending={isPending} />
           )}
-          isPending={isPending}
-        />
-      )}
-      {alignment == "instagram" && imposters && (
-        <ShowList
-          imposters={imposters.filter(
-            (imposter) => imposter.source == "Instagram"
+          {alignment == "facebook" && imposters && (
+            <ShowList
+              imposters={imposters.filter(
+                (imposter) => imposter.source == "facebook"
+              )}
+              isPending={isPending}
+            />
           )}
-          isPending={isPending}
-        />
-      )}
-    </div>
+          {alignment == "instagram" && imposters && (
+            <ShowList
+              imposters={imposters.filter(
+                (imposter) => imposter.source == "instagram"
+              )}
+              isPending={isPending}
+            />
+          )}
+        </div>
+    </center>
   );
 };
 
