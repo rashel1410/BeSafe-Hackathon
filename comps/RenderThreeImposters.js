@@ -14,7 +14,7 @@ const RenderThreeImposters = ({ imposters }) => {
           <Avatar src={imposter.img_url} />
         </ListItemAvatar>
         <ListItemText
-          primary={imposter.nick_name}
+          primary={imposter.first_name}
           primaryTypographyProps={{
             align: 'left',
             style: { verticalAlign: 'middle',
