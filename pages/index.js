@@ -44,14 +44,15 @@ export default function Home() {
         <meta name="keywords" content="ninjas" />
       </Head>
       <Grid>
-        <Card title='אינסטגרם' content='משהו' searchBar='True' />
-        <Card title='פייסבוק' content='משהו' searchBar='True' />
+        <Card title='אינסטגרם' searchBar='True' />
+        <Card title='פייסבוק' searchBar='True' />
         <Card
           title='על האתר'
           content='Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin in ex placerat, tincidunt ante eget, blandit lorem. Nulla lorem orci, auctor nec vestibulum nec, condimentum sed dolor. In elementum vehicula est, vel lobortis felis semper non. Duis sodales condimentum erat, et posuere tortor interdum eget. Duis viverra et ante et varius.;'
           avatarList='True'
         />
         <Card title='איך מזהים מתחזה' />
+        
         <Fab aria-label='add' size='large'>
           <AddIcon onClick={handleClickOpen} />
         </Fab>
