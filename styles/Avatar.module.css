@@ -1,0 +1,12 @@
+.avatar_link {
+    text-decoration: none;
+    color: white;
+
+}
+
+.avatar:hover {
+    background-color: ffffff;
+    -webkit-backdrop-filter: blur(20px);
+    backdrop-filter: blur(20px);
+
+}

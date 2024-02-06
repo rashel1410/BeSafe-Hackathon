@@ -5,58 +5,37 @@ import TextField from '@mui/material/TextField';
 import Autocomplete from '@mui/material/Autocomplete';
 import { useRouter } from "next/router";
 
-
-
 const Search = ({ app }) => {
     const { imposters } = useGlobalContext();
     const [namesList, setNamesList] = useState([]);
-    //const [linksList, setLinksList] = useState([]);
     const router = useRouter();
 
     useEffect(() => {
         if(app === 'Instagram')
         {
             const data = imposters?.filter(
-                (imposter) => imposter.source == "Instagram"
+                (imposter) => imposter.source === "instagram"
             );
-            //names
             const names = data?.map((item) => {
                 return {
-                    ...item,
+                    id: item.id,
                     label: item.nick_name
                 }
             });
             setNamesList(names);
-            //links
-            // const links = data?.map((item) => {
-            //     return {
-            //         ...item,
-            //         label: item.profile_url
-            //     }
-            // });
-            // setLinksList(links);
         }
         else
         {
             const data = imposters?.filter(
-                (imposter) => imposter.source == "Facebook"
+                (imposter) => imposter.source === "facebook"
             );
-            //names
             const names = data?.map((item) => {
                 return {
-                    ...item,
+                    id: item.id,
                     label: item.nick_name
                 }
             });
             setNamesList(names);
-            //links
-            // const links = data?.map((item) => {
-            //     return {
-            //         ...item,
-            //         label: item.profile_url
-            //     }
-            // });
-            // setLinksList(links);
         }
     }, [imposters]);
 
@@ -72,20 +51,20 @@ const Search = ({ app }) => {
     //     }
     // };
 
+    
+
     return (
         <div className="search-bar-dropdown">
             <Autocomplete
-                disablePortal
                 id="combo-box-demo"
                 options={namesList}
-                getOptionLabel={(option) => option.nick_name}
-                sx={{ width: 300 }}
+                getOptionLabel={(option) => option.label}
+                sx={{ width: 300, direction:"rtl"}}
                 onChange={handleNameChange}
-                renderInput={(params) => <TextField  {...params} label="חפש לפי שם ..." />}
+                renderInput={(params) => (
+                        <TextField  {...params} label="חפש" />
+                )}
             />
-            
-            <br/>
-
             {/* <Autocomplete
                 disablePortal
                 id="combo-box-demo"
