@@ -5,6 +5,7 @@ import { GameContext } from "../helpers/Contexts";
 const GameStart = () => {
   const { gameState, setGameState } = useContext(GameContext);
   return (
+    <center>
     <div>
       <h2>ברוכות הבאות למשחק "איך מזהים מתחזה"!</h2>
       <p>
@@ -16,6 +17,7 @@ const GameStart = () => {
       </p>
       <button onClick={() => setGameState("play")}>התחלת משחק</button>
     </div>
+    </center>
   );
 };
 
