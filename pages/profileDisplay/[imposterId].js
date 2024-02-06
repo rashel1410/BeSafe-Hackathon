@@ -99,7 +99,7 @@ const ProfileDisplay = () => {
             height={100}
           /> */}
           <br />
-          {imposterToDisplay.source === "Instagram" ? <a
+          {imposterToDisplay.source === "instagram" ? <a
             href={imposterToDisplay.profile_url}
             target="_blank"
             rel="noopener noreferrer"
@@ -113,7 +113,7 @@ const ProfileDisplay = () => {
           </a>
             : null}
 
-          {imposterToDisplay.source === "Facebook" ? <a
+          {imposterToDisplay.source === "facebook" ? <a
             href="https://www.facebook.com/"
             target="_blank"
             rel="noopener noreferrer"
