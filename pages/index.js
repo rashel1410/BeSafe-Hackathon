@@ -34,6 +34,21 @@ export default function Home() {
     setAddDialogOpen(false);
   };
 
+  const aboutContent=() => (
+    <>
+          האם אי פעם קיבלת בקשת חברות או הודעה מפרופיל שנראה לך חשוד?
+          <br></br>
+          האם עלה בך הרצון לבדוק האם זהו פרופיל של מתחזה?<br></br>
+          באתר שלנו – SHA-ZAR - תוכלי לעשות זאת בקלות!<br></br>
+          מצד שמאל, תוכלי לחפש פרופיל מפייסבוק או אינסטגרם.<br></br>
+          כמו כן, באפשרותך לדווח על פרופיל מזויף באמצעות כפתור ה + למטה.
+          <br></br>
+          לא בטוחה למה לשים לב לפני הדיווח?<br></br>
+          לחצי על המשחק "איך מזהים מתחזה" מצד שמאל, בו תלמדי על המאפיינים
+          העיקריים.
+    </>
+  )
+
   return (
     <>
       <Head>
@@ -45,26 +60,10 @@ export default function Home() {
         <Card title="פייסבוק" searchBar />
         <Card
           title="על האתר"
-          content={
-            <p>
-              האם אי פעם קיבלת בקשת חברות או הודעה מפרופיל שנראה לך חשוד?
-              <br></br>
-              האם עלה בך הרצון לבדוק האם זהו פרופיל של מתחזה?<br></br>
-              באתר שלנו – SHA-ZAR - תוכלי לעשות זאת בקלות!<br></br>
-              מצד שמאל, תוכלי לחפש פרופיל מפייסבוק או אינסטגרם.<br></br>
-              כמו כן, באפשרותך לדווח על פרופיל מזויף באמצעות כפתור ה + למטה.
-              <br></br>
-              לא בטוחה למה לשים לב לפני הדיווח?<br></br>
-              לחצי על המשחק "איך מזהים מתחזה" מצד שמאל, בו תלמדי על המאפיינים
-              העיקריים.
-            </p>
-          }
-          avatarList="True"
-        ></Card>
-        <Card title="איך מזהים מתחזה" />
-        <Fab aria-label="add" size="large">
-          <AddIcon onClick={handleClickOpen} />
-        </Fab>
+          content={aboutContent()}
+          avatarList/>
+        <Card title='איך מזהים מתחזה' url='./game_app'/>
+        <Card addButton clickHandler={handleClickOpen}/>
         <CreateImposterDialog
           open={addDialogOpen}
           onClose={handleClose}

@@ -17,7 +17,7 @@ const Card = ({ title, content, searchBar = false, avatarList = false, addButton
     }
 
     const cardContent = () => (
-        <div className={styles.card}>
+        <div className={styles.card} onClick={clickHandler}>
             <div className={styles.card_content}>
                 <CardContent>
                     <Typography variant="h5" component="div">
@@ -40,9 +40,6 @@ const Card = ({ title, content, searchBar = false, avatarList = false, addButton
                     )}
                     {addButton && (
                         <h1>+</h1>
-                        /* <Fab aria-label='add' size='large'>
-                            <AddIcon onClick={clickHandler} />
-                        </Fab> */
                     )}
 
                 </CardContent>
