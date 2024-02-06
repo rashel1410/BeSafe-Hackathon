@@ -12,9 +12,8 @@ const RenderThreeImposters = ({ imposters }) => {
 
   return imposters.map((imposter) => (
     <List  sx={{ width: '100%', maxWidth: 360 }} key={imposter.id}>
-      <Link href={`profileDisplay/${imposter.id}`} style={{textDecoration: 'none', color: 'white'}} > 
-      
-        <ListItem alignItems="left" >
+      <Link className={styles.avatar_link} href={`profileDisplay/${imposter.id}`} > 
+        <ListItem className={styles.avatar} alignItems="left" >
           <ListItemAvatar sx={{ marginLeft: '5px' }}>
             <Avatar src={imposter.img_url} />
           </ListItemAvatar>
