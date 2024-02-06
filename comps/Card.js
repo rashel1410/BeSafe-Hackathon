@@ -34,7 +34,7 @@ const Card = ({ title, content, searchBar = false, avatarList = false, addButton
                     
                     {avatarList && (
                         <div className={styles.card_footer}>
-                            <h4>:פרופילים שדווחו לאחרונה</h4>
+                            <h4>פרופילים שדווחו לאחרונה</h4>
                                 <AvatarList />
                         </div>
                     )}

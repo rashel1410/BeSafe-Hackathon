@@ -135,12 +135,12 @@ const CreateImposterDialog = ({ open, onClose, onAddSuccess }) => {
                         required
                       >
                         <FormControlLabel
-                          value='Instagram'
+                          value='instagram'
                           control={<Radio className={styles.hiddenRadio} />}
                           label={
                             <InstagramIcon
                               className={`${styles.icon} ${
-                                source === 'Instagram'
+                                source === 'instagram'
                                   ? styles.instagramChecked
                                   : styles.iconUnchecked
                               }`}
@@ -148,12 +148,12 @@ const CreateImposterDialog = ({ open, onClose, onAddSuccess }) => {
                           }
                         />
                         <FormControlLabel
-                          value='Facebook'
+                          value='facebook'
                           control={<Radio className={styles.hiddenRadio} />}
                           label={
                             <FacebookRoundedIcon
                               className={`${styles.icon} ${
-                                source === 'Facebook'
+                                source === 'facebook'
                                   ? styles.facebookChecked
                                   : styles.iconUnchecked
                               }`}
