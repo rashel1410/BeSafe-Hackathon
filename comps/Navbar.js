@@ -12,10 +12,10 @@ const Navbar = () => {
       </Link>
       <ul className={styles.nav_links}>
         <li>
-          <Link href='/'>עמוד הבית</Link>
+          <Link className={styles.link} href='/' >עמוד הבית</Link>
         </li>
         <li>
-          <Link href='/imposters'> רשימת המתחזים</Link>
+          <Link className={styles.link} href='/imposters' > רשימת המתחזים</Link>
         </li>
       </ul>
     </nav>
