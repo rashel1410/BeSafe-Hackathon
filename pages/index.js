@@ -43,16 +43,16 @@ export default function Home() {
         <meta name="keywords" content="ninjas" />
       </Head>
       <Grid>
-        <Card title='אינסטגרם' searchBar='True' />
-        <Card title='פייסבוק' searchBar='True' />
+        <Card title='אינסטגרם' searchBar/>
+        <Card title='פייסבוק' searchBar/>
         <Card
           title='על האתר'
           content='Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin in ex placerat, tincidunt ante eget, blandit lorem. Nulla lorem orci, auctor nec vestibulum nec, condimentum sed dolor. In elementum vehicula est, vel lobortis felis semper non. Duis sodales condimentum erat, et posuere tortor interdum eget. Duis viverra et ante et varius.;'
           avatarList='True'
         />
         <Card title='איך מזהים מתחזה' url='./game_app'/>
-        <div style={{"backdrop-filter":"blur(20px)"}}>
-          <Card addButton = 'True' clickHandler={handleClickOpen}/>
+        <div className='add-button-wrapper' onClick={handleClickOpen}>
+          <Card addButton />
         </div>
         
         
