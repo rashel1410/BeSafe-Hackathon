@@ -6,9 +6,9 @@ function App({ Component, pageProps }) {
   return (
     <AppProvider>
       <div dir='rtl'>
-      <Layout>
-        <Component {...pageProps} />
-      </Layout>
+        <Layout>
+          <Component {...pageProps} />
+        </Layout>
       </div>
     </AppProvider>
   );
