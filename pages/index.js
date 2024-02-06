@@ -51,11 +51,12 @@ export default function Home() {
           content='Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin in ex placerat, tincidunt ante eget, blandit lorem. Nulla lorem orci, auctor nec vestibulum nec, condimentum sed dolor. In elementum vehicula est, vel lobortis felis semper non. Duis sodales condimentum erat, et posuere tortor interdum eget. Duis viverra et ante et varius.;'
           avatarList='True'
         />
-        <Card title='איך מזהים מתחזה' />
+        <Card title='איך מזהים מתחזה' url='./game_app'/>
+        <div style={{"backdrop-filter":"blur(20px)"}}>
+          <Card addButton = 'True' clickHandler={handleClickOpen}/>
+        </div>
         
-        <Fab aria-label='add' size='large'>
-          <AddIcon onClick={handleClickOpen} />
-        </Fab>
+        
         <CreateImposterDialog
           open={addDialogOpen}
           onClose={handleClose}

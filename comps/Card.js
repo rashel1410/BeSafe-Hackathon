@@ -8,12 +8,14 @@ import Button from '@mui/material/Button';
 import IconButton from '@mui/material/IconButton';
 import Container from '@mui/material/Container';
 import Avatar from '@mui/material/Avatar';
-import AddIcon from '@mui/icons-material/Add';
 import AvatarList from './AvatarList'
 import { red } from '@mui/material/colors';
+import Fab from '@mui/material/Fab';
+import AddIcon from '@mui/icons-material/Add';
 
-const Card = ({ title, content, searchBar = false, avatarList = false }) => {
-    return (
+
+const Card = ({ title, content, searchBar = false, avatarList = false, addButton = false, clickHandler, url}) => {
+    const cardContent = () => (
         <div className={styles.card}>
             <div className={styles.card_content}>
                 <CardContent>
@@ -35,13 +37,22 @@ const Card = ({ title, content, searchBar = false, avatarList = false }) => {
                                 <AvatarList />
                         </div>
                     )}
+                    {addButton && (
+                        <h1>+</h1>
+                        /* <Fab aria-label='add' size='large'>
+                            <AddIcon onClick={clickHandler} />
+                        </Fab> */
+                    )}
 
                 </CardContent>
-
-
-
             </div>
         </div>
+    )
+    return (       
+        <>
+        {url? (<Link className="link-style" href={url}>{cardContent()}</Link>) : cardContent()}   
+        
+        </>
     );
 };
 
