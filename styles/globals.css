@@ -52,7 +52,3 @@ footer {
   color: #4979ff;
   text-decoration: underline;
 }
-.add-button-wrapper {
-  cursor: pointer;
-  transform: scale(1.05);
-}

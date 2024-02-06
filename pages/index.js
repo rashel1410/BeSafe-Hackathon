@@ -51,9 +51,8 @@ export default function Home() {
           avatarList='True'
         />
         <Card title='איך מזהים מתחזה' url='./game_app'/>
-        <div className='add-button-wrapper' onClick={handleClickOpen}>
-          <Card addButton />
-        </div>
+        <Card addButton clickHandler={handleClickOpen}/>
+
         
         
         <CreateImposterDialog
