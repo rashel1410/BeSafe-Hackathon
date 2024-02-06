@@ -16,7 +16,7 @@ import {
   IconButton,
 } from '@mui/material';
 
-const CreateImposterDialog = ({ open, onClose }) => {
+const CreateImposterDialog = ({ open, onClose, onAddSuccess }) => {
   const [firstName, setFirstName] = useState('');
   const [lastName, setLastName] = useState('');
   const [nickname, setNickname] = useState('');
@@ -33,13 +33,13 @@ const CreateImposterDialog = ({ open, onClose }) => {
   const handleSubmit = (e) => {
     e.preventDefault();
     const imposter = {
-      firstName,
-      lastName,
+      first_name: firstName,
+      last_name: lastName,
       nickname,
       gender,
       source,
       profile_url: profileUrl,
-      image_url: imageUrl,
+      img_url: imageUrl,
       info,
       comments: [],
       timestamp: new Date().toISOString().split('T')[0],
@@ -54,6 +54,9 @@ const CreateImposterDialog = ({ open, onClose }) => {
     }).then(() => {
       console.log('a new imposter added:' + imposter.nickname);
     });
+
+    onAddSuccess('תודה על הדיווח');
+    onClose();
   };
 
   return (
@@ -64,7 +67,7 @@ const CreateImposterDialog = ({ open, onClose }) => {
       fullWidth={true}
       maxWidth={'md'}
       scroll={'paper'}
-      aria-labelledby="dialog"
+      aria-labelledby='dialog'
       className={styles.paper}
     >
       <DialogTitle>הוספה</DialogTitle>
@@ -80,7 +83,7 @@ const CreateImposterDialog = ({ open, onClose }) => {
                   onChange={(e) => setInfo(e.target.value)}
                   className={`${styles['info']} ${styles['input']}`}
                   required
-                  placeholder="תיאור קצר של המתחזה"
+                  placeholder='תיאור קצר של המתחזה'
                 ></textarea>
               </div>
               <div className={styles.column}>
@@ -129,14 +132,15 @@ const CreateImposterDialog = ({ open, onClose }) => {
                         name='socialmedia'
                         value={source}
                         onChange={(e) => setSource(e.target.value)}
+                        required
                       >
                         <FormControlLabel
-                          value='instagram'
+                          value='Instagram'
                           control={<Radio className={styles.hiddenRadio} />}
                           label={
                             <InstagramIcon
                               className={`${styles.icon} ${
-                                source === 'instagram'
+                                source === 'Instagram'
                                   ? styles.instagramChecked
                                   : styles.iconUnchecked
                               }`}
@@ -144,12 +148,12 @@ const CreateImposterDialog = ({ open, onClose }) => {
                           }
                         />
                         <FormControlLabel
-                          value='facebook'
+                          value='Facebook'
                           control={<Radio className={styles.hiddenRadio} />}
                           label={
                             <FacebookRoundedIcon
                               className={`${styles.icon} ${
-                                source === 'facebook'
+                                source === 'Facebook'
                                   ? styles.facebookChecked
                                   : styles.iconUnchecked
                               }`}

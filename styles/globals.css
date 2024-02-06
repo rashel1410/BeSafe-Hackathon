@@ -1,9 +1,15 @@
 @import url('https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;600;700&display=swap');
 
 body {
-  background: hsl(0, 60%, 71%);
   color: #333;
   font-family: 'Nunito';
+
+  background: url(../public/background/background_img.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  height: 100vh;
 }
 a {
   color: #333;

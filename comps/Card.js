@@ -12,6 +12,7 @@ import AddIcon from '@mui/icons-material/Add';
 import AvatarList from './AvatarList'
 import { red } from '@mui/material/colors';
 
+
 const Card = ({ title, content, searchBar=false , avatarList=false}) => {
     let app;
     if(title === 'אינסטגרם')
@@ -36,18 +37,22 @@ const Card = ({ title, content, searchBar=false , avatarList=false}) => {
 
             {searchBar && <Search app={app}/>}
 
-            <div className={styles.card_footer}>
-                {avatarList && (
-                    <div>
-                        <h4>:פרופילים שדווחו לאחרונה</h4>
-                        <AvatarList/>
+
+                    <div className={styles.card_footer}>
+                        {avatarList && (
+                            <div>
+                                <h4>:פרופילים שדווחו לאחרונה</h4>
+                                <AvatarList />
+                            </div>
+                        )}
                     </div>
-                )}
+                </CardContent>
+
+
+
             </div>
-            </CardContent>
         </div>
-    </div>
-  );
+    );
 };
 
 export default Card;

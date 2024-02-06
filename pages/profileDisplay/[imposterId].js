@@ -4,6 +4,11 @@ import Image from "next/image";
 import { useGlobalContext } from "../../public/context";
 import { useRouter } from "next/router";
 import Avatar from "@mui/material/Avatar";
+import styles from '/styles/Card.module.css';
+
+
+import Card from '../../comps/Card.js';
+
 
 const ProfileDisplay = () => {
   const router = useRouter();
@@ -35,11 +40,38 @@ const ProfileDisplay = () => {
     setComment(event.target.value);
   };
 
-  const handleSubmitComment = () => {
-    // Handle the submission of the comment (e.g., send it to a server, update state, etc.)
-    console.log("Submitted Comment:", comment);
-    // You can add additional logic here based on your requirements
+  const handleSubmitComment = async () => {
+    try {
+      const comments = [comment, ...(imposterToDisplay.comments || [])]
+      const response = await fetch(`http://localhost:8000/imposters/${imposterId}`, {
+        method: "PATCH",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ comments }),
+      });
+
+      console.log(comment);
+      console.log(imposterId);
+
+      if (response.ok) {
+        setImposterToDisplay({
+          ...imposterToDisplay,
+          comments,
+        });
+
+        setComment(""); // Clear the comment input field
+      } else {
+        console.error("Failed to add comment");
+      }
+    } catch (error) {
+      console.error("Error:", error);
+    }
   };
+
+
+
+
 
   return (
     <>
@@ -52,8 +84,13 @@ const ProfileDisplay = () => {
           <h1>
             {imposterToDisplay.first_name} {imposterToDisplay.last_name}
           </h1>
+          <h3>
+            {imposterToDisplay.nick_name}, {imposterToDisplay.gender}
+          </h3>
 
-          <Avatar src={imposterToDisplay.img_url} />
+
+
+          <img style={{ "borderRadius": "25px", "height": "200px", "marginBottom": "10px" }} src={imposterToDisplay.img_url} />
 
           {/* <Image
             src="https://upload.wikimedia.org/wikipedia/commons/9/95/Instagram_logo_2022.svg"
@@ -62,7 +99,7 @@ const ProfileDisplay = () => {
             height={100}
           /> */}
           <br />
-          <a
+          {imposterToDisplay.source === "Instagram" ? <a
             href={imposterToDisplay.profile_url}
             target="_blank"
             rel="noopener noreferrer"
@@ -74,8 +111,9 @@ const ProfileDisplay = () => {
               height={30}
             />
           </a>
+            : null}
 
-          <a
+          {imposterToDisplay.source === "Facebook" ? <a
             href="https://www.facebook.com/"
             target="_blank"
             rel="noopener noreferrer"
@@ -86,31 +124,22 @@ const ProfileDisplay = () => {
               width={30}
               height={30}
             />
-          </a>
-          <br />
-          <p>דיווח</p>
-          <textarea
-            rows={4}
-            cols={50}
-            value={imposterToDisplay.info}
-            readOnly
-          ></textarea>
-          <br />
-          <textarea
-            rows={4}
-            cols={50}
-            value={imposterToDisplay.comments}
-            readOnly
-          ></textarea>
-          <br />
-          <textarea
-            rows={4}
-            cols={50}
-            value={imposterToDisplay.comments}
-            readOnly
-          ></textarea>
+          </a> : null}
 
           <br />
+          <p>דיווח</p>
+
+
+          <div style={{ "width": "450px" }}>
+            <Card
+              className={styles.card2}
+
+              content={imposterToDisplay.info}
+              readOnly
+            ></Card>
+
+          </div>
+
           <p>הוסף תגובה</p>
           <textarea
             rows={4}
@@ -121,10 +150,23 @@ const ProfileDisplay = () => {
           ></textarea>
           <br />
           <button onClick={handleSubmitComment}>Submit Comment</button>
+
+          <br />
+          <br />
+          <div style={{ "width": "400px" }}>
+            {imposterToDisplay.comments.map(comment => (
+              <div style={{ "margin-bottom": "10px" }}>
+                <Card content={comment}>
+                </Card>
+              </div>
+            ))}
+          </div>
+          <br />
+
         </center>
       )}
     </>
   );
-};
 
+};
 export default ProfileDisplay;
