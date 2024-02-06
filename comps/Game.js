@@ -3,6 +3,8 @@ import { useState, useContext } from "react";
 import { Questions } from "../helpers/Questions";
 import { GameContext } from "../helpers/Contexts";
 import { Box } from "@mui/material";
+import styles from "../styles/Home.module.css";
+import Card from "../comps/Card.js";
 
 const Game = () => {
   const [currQuestion, setCurrQuestion] = useState(0);
