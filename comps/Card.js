@@ -28,14 +28,14 @@ const Card = ({ title, content, searchBar = false, avatarList = false }) => {
 
                     {searchBar && <Search />}
 
-                    <div className={styles.card_footer}>
-                        {avatarList && (
-                            <div>
-                                <h4>:פרופילים שדווחו לאחרונה</h4>
+                    
+                    {avatarList && (
+                        <div className={styles.card_footer}>
+                            <h4>:פרופילים שדווחו לאחרונה</h4>
                                 <AvatarList />
-                            </div>
-                        )}
-                    </div>
+                        </div>
+                    )}
+
                 </CardContent>
 
 
