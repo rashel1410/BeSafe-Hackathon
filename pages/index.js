@@ -1,17 +1,33 @@
-import Head from "next/head";
-import Link from "next/link";
-import styles from "../styles/Home.module.css";
-import Card from "../comps/Card.js";
-import Grid from "../comps/Grid.js";
-import Fab from "@mui/material/Fab";
-import AddIcon from "@mui/icons-material/Add";
-import { useState } from "react";
-import { useGlobalContext } from "../public/context.js";
-import CreateImposterDialog from "./create.js";
+import Head from 'next/head';
+import Link from 'next/link';
+import styles from '../styles/Home.module.css';
+import Card from '../comps/Card.js';
+import Grid from '../comps/Grid.js';
+import Fab from '@mui/material/Fab';
+import AddIcon from '@mui/icons-material/Add';
+import { Snackbar } from '@mui/material';
+import Alert from '@mui/material/Alert';
+import { useState } from 'react';
+import { useGlobalContext } from '../public/context.js';
+import CreateImposterDialog from './create.js';
+
 
 export default function Home() {
   const [addDialogOpen, setAddDialogOpen] = useState(false);
+  const [snackbar, setSnackbar] = useState({ open: false, message: '' });
   const { imposters, isPending } = useGlobalContext();
+
+  const showSnackbar = (message) => {
+    setSnackbar({ open: true, message });
+  };
+
+  const handleCloseSnackbar = (event, reason) => {
+    if (reason === 'clickaway') {
+      return;
+    }
+    setSnackbar({ ...snackbar, open: false });
+  };
+
 
   const handleClickOpen = () => {
     setAddDialogOpen(true);
@@ -28,18 +44,36 @@ export default function Home() {
         <meta name="keywords" content="ninjas" />
       </Head>
       <Grid>
-        <Card title="אינסטגרם" content="משהו" searchBar="True" />
-        <Card title="פייסבוק" content="משהו" searchBar="True" />
+        <Card title='אינסטגרם' content='משהו' searchBar='True' />
+        <Card title='פייסבוק' content='משהו' searchBar='True' />
         <Card
-          title="על האתר"
-          content="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin in ex placerat, tincidunt ante eget, blandit lorem. Nulla lorem orci, auctor nec vestibulum nec, condimentum sed dolor. In elementum vehicula est, vel lobortis felis semper non. Duis sodales condimentum erat, et posuere tortor interdum eget. Duis viverra et ante et varius.;"
-          avatarList="True"
+          title='על האתר'
+          content='Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin in ex placerat, tincidunt ante eget, blandit lorem. Nulla lorem orci, auctor nec vestibulum nec, condimentum sed dolor. In elementum vehicula est, vel lobortis felis semper non. Duis sodales condimentum erat, et posuere tortor interdum eget. Duis viverra et ante et varius.;'
+          avatarList='True'
         />
-        <Card title="איך מזהים מתחזה" />
-        <Fab aria-label="add" size="large">
+        <Card title='איך מזהים מתחזה' />
+        <Fab aria-label='add' size='large'>
           <AddIcon onClick={handleClickOpen} />
         </Fab>
-        <CreateImposterDialog open={addDialogOpen} onClose={handleClose} />
+        <CreateImposterDialog
+          open={addDialogOpen}
+          onClose={handleClose}
+          onAddSuccess={showSnackbar}
+        />
+        <Snackbar
+          anchorOrigin={{ vertical: 'top', horizontal: 'center' }}
+          open={snackbar.open}
+          autoHideDuration={5000}
+          onClose={handleCloseSnackbar}
+        >
+          <Alert
+            onClose={handleCloseSnackbar}
+            severity='success'
+            sx={{ width: '100%' }}
+          >
+            {snackbar.message}
+          </Alert>
+        </Snackbar>
       </Grid>
     </>
   );
