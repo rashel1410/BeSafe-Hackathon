@@ -20,9 +20,11 @@ const Card = ({ title, content, searchBar = false, avatarList = false, addButton
         <div className={styles.card} onClick={clickHandler}>
             <div className={styles.card_content}>
                 <CardContent>
-                    <Typography variant="h5" component="div">
-                        {title}
-                    </Typography>
+                    <center>
+                        <Typography variant="h5" component="div" style={{ 'margin': '10px' }}>
+                            {title}
+                        </Typography>
+                    </center>
                     {content && (
                         <Typography variant="body2" color="text.secondary" className={styles.text}>
                             {content}
