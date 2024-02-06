@@ -11,6 +11,7 @@ import { useState } from 'react';
 import { useGlobalContext } from '../public/context.js';
 import CreateImposterDialog from './create.js';
 
+
 export default function Home() {
   const [addDialogOpen, setAddDialogOpen] = useState(false);
   const [snackbar, setSnackbar] = useState({ open: false, message: '' });
@@ -27,6 +28,7 @@ export default function Home() {
     setSnackbar({ ...snackbar, open: false });
   };
 
+
   const handleClickOpen = () => {
     setAddDialogOpen(true);
   };
@@ -39,7 +41,7 @@ export default function Home() {
     <>
       <Head>
         <title>Shazar | Home</title>
-        <meta name='keywords' content='ninjas' />
+        <meta name="keywords" content="ninjas" />
       </Head>
       <Grid>
         <Card title='אינסטגרם' content='משהו' searchBar='True' />
