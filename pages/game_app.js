@@ -10,6 +10,7 @@ export default function GameApp() {
   const [gameState, setGameState] = useState("start");
 
   return (
+    <center>
     <div className="GameApp">
       <h1>איך מזהים מתחזה</h1>
       <GameContext.Provider value={{ gameState, setGameState }}>
@@ -18,5 +19,6 @@ export default function GameApp() {
         {gameState === "end" && <GameEnd />}
       </GameContext.Provider>
     </div>
+    </center>
   );
 }
