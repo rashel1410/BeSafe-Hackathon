@@ -1,0 +1,17 @@
+.icons {
+  display: flex;
+  justify-content: center;
+}
+
+.info {
+  width: 450px;
+  padding: 6px 10px;
+  margin: 10px 0;
+  border: 1px solid #ddd;
+  box-sizing: border-box;
+  display: block;
+  padding: 10px;
+  border-radius: 10px;
+  background-color: rgb(224, 224, 224);
+  outline: none;
+}
